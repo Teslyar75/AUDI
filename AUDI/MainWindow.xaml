@@ -1,0 +1,47 @@
+﻿<Window x:Class="AUDI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AUDI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="1300">
+    <Grid>
+        <Grid.Resources>
+            <!-- Определение градиента для кольца -->
+            <LinearGradientBrush x:Key="RingGradient" StartPoint="0,0" EndPoint="1,1">
+                <!-- Градиентные стопы определяют цвета и положение градиента -->
+                <!-- Здесь используются темные оттенки серого цвета, но вы можете изменить их на свои предпочтения -->
+                <GradientStop Color="#FF202020" Offset="0"/>
+                <GradientStop Color="#FFF3F0F0" Offset="0.2"/>
+                <GradientStop Color="#FF202020" Offset="0.5"/>
+                <GradientStop Color="#FFE6E5E5" Offset="0.8"/>
+                <GradientStop Color="#FF202020" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Resources>
+
+        <!-- Используем Ellipse для отрисовки кольца с применением градиента -->
+        <Grid>
+            <Ellipse Width="150" Height="150" StrokeThickness="20" Stroke="{StaticResource RingGradient}" Margin="-280,-95,0,0"/>
+            <Ellipse Width="150" Height="150" StrokeThickness="20" Stroke="{StaticResource RingGradient}" Margin="-100,-95,0,0"/>
+            <Ellipse Width="150" Height="150" StrokeThickness="20" Stroke="{StaticResource RingGradient}" Margin="80,-95,0,0"/>
+            <Ellipse Width="150" Height="150" StrokeThickness="20" Stroke="{StaticResource RingGradient}" Margin="260,-95,0,0"/>
+        </Grid>
+
+        <!-- Эффект отражения -->
+        <Grid>
+            <Grid.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="Black"/>
+                    <GradientStop Offset="0.5" Color="Transparent"/>
+                </LinearGradientBrush>
+            </Grid.OpacityMask>
+
+            <!-- Кольца с применением эффекта отражения -->
+            <Ellipse Width="150" Height="150" StrokeThickness="20" Stroke="{StaticResource RingGradient}" Margin="-280,205,0,0"/>
+            <Ellipse Width="150" Height="150" StrokeThickness="20" Stroke="{StaticResource RingGradient}" Margin="-100 205,0,0"/>
+            <Ellipse Width="150" Height="150" StrokeThickness="20" Stroke="{StaticResource RingGradient}" Margin="80,205,0,0"/>
+            <Ellipse Width="150" Height="150" StrokeThickness="20" Stroke="{StaticResource RingGradient}" Margin="260,205,0,0"/>
+        </Grid>
+    </Grid>
+</Window>
